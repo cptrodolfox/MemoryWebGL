@@ -17,6 +17,8 @@ public class BoardController : MonoBehaviour {
     private Button fstSelectedTile;
     private Button sndSelectedTile;
 
+    private GridLayoutGroup grid;
+    private RectTransform rectTransform;
     void Awake()
     {
         InitState();
@@ -30,6 +32,9 @@ public class BoardController : MonoBehaviour {
         scoreText = GameObject.Find("Score").GetComponent<Text>();
         attemptsText = GameObject.Find("Attempts").GetComponent<Text>();
         Button resetButton = GameObject.Find("ResetButton").GetComponent<Button>();
+        grid = gameObject.GetComponent<GridLayoutGroup>();
+        rectTransform = gameObject.GetComponent<RectTransform>();
+        grid.cellSize = new Vector2(rectTransform.rect.width / 10, rectTransform.rect.height / 5);
         resetButton.onClick.AddListener(delegate { Reset(); });
         StartCoroutine(InitTiles());
 	}
@@ -157,6 +162,14 @@ public class BoardController : MonoBehaviour {
             AddTile(tile);
             tileName++;
             yield return new WaitForSeconds(0.001f);
+        }
+    }
+
+    void OnRectTransformDimensionsChange ()
+    {
+        if (grid != null && rectTransform != null)
+        {
+            grid.cellSize = new Vector2(rectTransform.rect.width / 10, rectTransform.rect.height / 5);
         }
     }
 }

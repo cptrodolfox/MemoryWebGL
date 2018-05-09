@@ -2,7 +2,7 @@ WebGL
 PlayerPath?
 C:/Users/cptrodolfox/Documents/UnityProjects/MemoryWebGL/Builds
 SceneListBegin?
-Assets/Scenes/Game.unity
+Assets/Scenes/Memory.unity
 SceneListEnd?
 27313262fd8c7df403e43a9a701a4c4a Assembly-CSharp.dll:.BoardController
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
